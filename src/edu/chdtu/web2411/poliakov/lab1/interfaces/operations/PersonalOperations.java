@@ -1,8 +1,6 @@
-package edu.chdtu.web2411.poliakov.lab1.interfaces;
+package edu.chdtu.web2411.poliakov.lab1.interfaces.operations;
 
-public interface PersonalAccountMethods {
-
+public interface PersonalOperations {
     double setLimitPerDay(double limit);
-
     double calculateCashback(double amountSpent, double cashbackPercent);
 }

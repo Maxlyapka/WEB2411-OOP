@@ -1,10 +1,12 @@
 package edu.chdtu.web2411.poliakov.lab1.accounts.business;
 
 import edu.chdtu.web2411.poliakov.lab1.BankAccount;
-import edu.chdtu.web2411.poliakov.lab1.interfaces.CalculateInterest;
-import edu.chdtu.web2411.poliakov.lab1.interfaces.Withdrawal;
+import edu.chdtu.web2411.poliakov.lab1.enums.AccountType;
+import edu.chdtu.web2411.poliakov.lab1.interfaces.Calculator;
+import edu.chdtu.web2411.poliakov.lab1.interfaces.Operation;
 
-public class BusinessAccount extends BankAccount implements Withdrawal, CalculateInterest {
+
+public class BusinessAccount extends BankAccount implements Calculator<Integer, Double> {
     protected String companyName;
     protected double creditLimit;
     protected double interestRate;
@@ -14,23 +16,26 @@ public class BusinessAccount extends BankAccount implements Withdrawal, Calculat
         this.companyName = companyName;
         this.creditLimit = creditLimit;
         this.interestRate = interestRate;
-    }
-
-
-    @Override
-    public boolean withdrawal(double amount) {
-        double available = this.balance + creditLimit;
-        if (amount > 0 && amount <= available) {
-            this.balance -= amount;
-            return true;
-        }
-        return false;
+        this.accountType = AccountType.BUSINESS;
     }
 
     @Override
-    public double calculateInterestRate(int days) {
-        if(balance >= 0 ) return 0;
+    public boolean withdraw(double amount) {
+        Operation<Double> businessWithdraw = amt -> {
+            double available = this.balance + this.creditLimit;
+            if(amt > 0 && amt <= available) {
+                this.balance -= amt;
+                return true;
+            }
+            return false;
+        };
+        return businessWithdraw.execute(amount);
+    }
+
+    @Override
+    public Double calculateInterest(Integer days) {
+        if(this.balance >= 0) return 0.0;
         double overdraft = -balance;
-        return Math.floor((overdraft * this.interestRate * days) / (365 * 100));
+        return  Math.floor((overdraft * this.interestRate * days) / (365 * 100));
     }
 }
