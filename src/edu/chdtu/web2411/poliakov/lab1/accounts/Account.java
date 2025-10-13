@@ -1,4 +1,4 @@
-package edu.chdtu.web2411.poliakov.lab1;
+package edu.chdtu.web2411.poliakov.lab1.accounts;
 
 import edu.chdtu.web2411.poliakov.lab1.enums.AccountStatus;
 import edu.chdtu.web2411.poliakov.lab1.enums.AccountType;
@@ -18,17 +18,6 @@ public abstract class Account implements BankAccount {
         this.owner = owner;
         this.cardNumber = cardNumber;
         this.balance = balance;
-    }
-
-    private boolean isCardBlocked() {
-        return this.status == AccountStatus.BLOCKED;
-    }
-
-    public double getBalance() {
-        if(isCardBlocked()) {
-            throw new Error("Card is blocked");
-        }
-        return this.balance;
     }
 
     @Override

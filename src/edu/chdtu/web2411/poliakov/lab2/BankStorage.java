@@ -1,8 +1,8 @@
-package edu.chdtu.web2411.poliakov.lab1;
+package edu.chdtu.web2411.poliakov.lab2;
 
-import edu.chdtu.web2411.poliakov.lab1.accounts.Account;
-import edu.chdtu.web2411.poliakov.lab1.interfaces.operations.Bank;
-import edu.chdtu.web2411.poliakov.lab1.interfaces.Predicate;
+import edu.chdtu.web2411.poliakov.lab2.accounts.Account;
+import edu.chdtu.web2411.poliakov.lab2.interfaces.Predicate;
+import edu.chdtu.web2411.poliakov.lab2.interfaces.operations.Bank;
 
 import java.util.ArrayList;
 
