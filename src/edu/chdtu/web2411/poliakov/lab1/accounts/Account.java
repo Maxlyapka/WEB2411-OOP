@@ -2,11 +2,12 @@ package edu.chdtu.web2411.poliakov.lab1.accounts;
 
 import edu.chdtu.web2411.poliakov.lab1.enums.AccountStatus;
 import edu.chdtu.web2411.poliakov.lab1.enums.AccountType;
-import edu.chdtu.web2411.poliakov.lab1.interfaces.BankAccount;
 import edu.chdtu.web2411.poliakov.lab1.interfaces.Predicate;
+import edu.chdtu.web2411.poliakov.lab1.interfaces.operations.BankOperations;
 
 
-public abstract class Account implements BankAccount {
+public abstract class Account {
+    private BankOperations bankOperations;
     protected String owner;
     protected String cardNumber;
     protected double balance;
@@ -20,10 +21,6 @@ public abstract class Account implements BankAccount {
         this.balance = balance;
     }
 
-    @Override
-    public double payToCard(double amountPay) {
-        return this.balance += amountPay;
-    }
 
     public boolean withdraw(double amount) {
         Predicate<Double> bankWithdraw = amt -> {
@@ -34,5 +31,13 @@ public abstract class Account implements BankAccount {
             return false;
         };
         return  bankWithdraw.execute(amount);
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 }

@@ -2,10 +2,8 @@ package edu.chdtu.web2411.poliakov.lab2.accounts.personal;
 
 import edu.chdtu.web2411.poliakov.lab2.accounts.Account;
 import edu.chdtu.web2411.poliakov.lab2.enums.AccountType;
-import edu.chdtu.web2411.poliakov.lab2.interfaces.Function;
-import edu.chdtu.web2411.poliakov.lab2.interfaces.operations.User;
 
-public class PersonalAccount extends Account implements User {
+public class PersonalAccount extends Account {
     protected double limitPerDay;
     protected double interestRate = 10;
 
@@ -15,7 +13,6 @@ public class PersonalAccount extends Account implements User {
         this.accountType = AccountType.USER;
     }
 
-    @Override
     public double setLimitPerDay(double limit) {
         this.limitPerDay = limit;
         return this.limitPerDay;
@@ -31,7 +28,6 @@ public class PersonalAccount extends Account implements User {
         return false;
     }
 
-    @Override
     public double calculateCashback(double amountSpent, double cashbackPercent) {
         double balance = this.card.getBalance();
         if (balance < amountSpent) return 0;
