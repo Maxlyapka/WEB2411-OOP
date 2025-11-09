@@ -8,6 +8,6 @@ public class LaboratoryWork extends Subject {
     }
 
     public void showInfo() {
-        System.out.println("-> Лаба №" + this.labNumber + " з '" + this.subjectName + "'");
+        System.out.println("Лаба №" + this.labNumber + " з '" + this.subjectName + "'");
     }
 }
