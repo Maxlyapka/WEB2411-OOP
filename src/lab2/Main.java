@@ -1,3 +1,5 @@
+package lab2;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -5,7 +7,6 @@ public class Main {
 
         Student Zadorozhny = new Student("Денис", "Задорожній", "Веб20033");
         Student Melnik = new Student("Анна", "Мельник", "Веб20034");
-
         GroupLeader Romanov = new GroupLeader("Максим", "Романов", "Веб20035");
 
         Subject oopLab1 = new LaboratoryWork("Програмування", 1);
@@ -34,14 +35,12 @@ public class Main {
         Web2411.addStudent(Zadorozhny);
         Web2411.addStudent(Melnik);
         Web2411.addStudent(Romanov);
-
         Web2411.setGroupLeader(Romanov);
 
         Web2411.displayGroupInfo();
 
-        System.out.println("Розрахунок середнього балу");
+        System.out.println("\nРозрахунок середнього балу групи:");
         double averageResult = Web2411.calculateAverageGrade();
-
         System.out.println("Середній бал групи = " + averageResult);
     }
 }

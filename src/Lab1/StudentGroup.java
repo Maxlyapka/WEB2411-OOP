@@ -1,3 +1,5 @@
+package Lab1;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +54,6 @@ public class StudentGroup {
                 }
             }
         }
-
         if (totalGradesCount == 0) {
             return 0.0;
         }

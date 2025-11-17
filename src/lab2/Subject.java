@@ -1,8 +1,10 @@
+package lab2;
+
 public class Subject implements Gradable, SubmitTable {
 
-    public String subjectName;
-    public boolean submitted;
-    public int grade;
+    private String subjectName;
+    private boolean submitted;
+    private int grade;
 
     public Subject(String subjectName) {
         this.subjectName = subjectName;
@@ -15,9 +17,7 @@ public class Subject implements Gradable, SubmitTable {
         System.out.println("Робота з '" + this.subjectName + "' здана.");
     }
 
-    public boolean isSubmitted() {
-        return this.submitted;
-    }
+    public boolean isSubmitted() { return this.submitted; }
 
     public void setGrade(int grade) {
         if (grade > 0 && grade <= 100) {
@@ -28,11 +28,9 @@ public class Subject implements Gradable, SubmitTable {
         }
     }
 
-    public int getGrade() {
-        return this.grade;
-    }
+    public int getGrade() { return this.grade; }
 
-    public boolean isGraded() {
-        return this.grade > 0;
-    }
+    public boolean isGraded() { return this.grade > 0; }
+
+    public String getSubjectName() { return subjectName; }
 }

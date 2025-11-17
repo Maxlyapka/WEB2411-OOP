@@ -1,5 +1,6 @@
-public class Person {
+package Lab1;
 
+public class Person {
     public String firstName;
     public String lastName;
 
@@ -9,6 +10,6 @@ public class Person {
     }
 
     public void displayInfo() {
-        System.out.println("Людина: " + this.firstName + " " + this.lastName);
+        System.out.println("Людина: " + firstName + " " + lastName);
     }
 }
